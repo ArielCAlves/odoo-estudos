@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- monitor list -->
+    <record model = "ir.ui.view" id = "lym_calculadora.list_monitor">
+        <field name = "name">lym_calculadora.monitor_tree</field>
+        <field name = "model">lym_calculadora.monitor</field>
+        <field name = "arch" type = "xml">
+            <tree>
+                <field name = "first_number"/>
+                <field name = "second_number"/>
+                <field name = "soma"/>
+                <field name = "subtracao"/>
+                <field name = "multiplicacao"/>
+                <field name = "divisao"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- form view -->
+    <record id = "course_form_view_monitor" model = "ir.ui.view">
+        <field name = "name">lym_calculadora.monitor_form</field>
+        <field name = "model">lym_calculadora.monitor</field>
+        <field name = "arch" type = "xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name = "first_number"/>
+                        <field name = "second_number"/>
+                    </group>
+                    <group col = "2">
+                        <field name = "soma"/>
+                        <field name = "subtracao"/>
+                        <field name = "multiplicacao"/>
+                        <field name = "divisao"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model = "ir.actions.server" id = "lym_calculadora.action_server">
+        <field name = "name">lym_calculadora server</field>
+        <field name = "model_id" ref = "model_lym_calculadora_monitor"/>
+        <field name = "state">code</field>
+        <field name = "code">
+            action = {
+                "type": "ir.actions.act_window",
+                "view_mode": "tree,form",
+                "res_model": self._name,
+            }
+        </field>
+    </record>
+
+    <record id = "lym_calculadora.action_window_monitor" model = "ir.actions.act_window">
+        <field name = "name">Monitor</field>
+        <field name = "res_model">lym_calculadora.monitor</field>
+        <field name = "view_mode">tree,form</field>
+    </record>
+
+    <!-- categorias -->
+    <menuitem name = "Monitor" id = "lym_calculadora.menu_1_list_monitor" parent = "lym_calculadora.menu_root"
+    action = "lym_calculadora.action_window_monitor"/>
+    <menuitem name = "Soma" id = "lym_calculadora.sub_menu_1_list_monitor" parent = "lym_calculadora.menu_1_list_monitor"
+    action = "lym_calculadora.action_window_monitor"/>
+</odoo>

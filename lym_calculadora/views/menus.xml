@@ -1,0 +1,9 @@
+<odoo>
+    <!-- menus -->
+    <menuitem name = "Lym Calculadora" id="lym_calculadora.menu_root" web_icon="lym_calculadora,static/description/icon.png"/>
+    
+
+    <!-- categorias -->
+    <menuitem name = "Menu" id = "lym_calculadora.menu_1" parent = "lym_calculadora.menu_root"/>
+    <menuitem name = "Soma" id = "lym_calculadora.sub_menu_1" parent = "lym_calculadora.menu_1"/>
+</odoo>

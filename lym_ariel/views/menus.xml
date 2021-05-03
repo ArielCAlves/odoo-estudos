@@ -1,0 +1,8 @@
+<odoo>
+    <!-- menus -->
+    <menuitem name = "Lym Ariel" id="lym_ariel.menu_root" web_icon="lym_ariel,static/description/icon.png"/>
+
+    <!-- categorias -->
+    <menuitem name = "Menu" id = "lym_ariel.menu_1" parent = "lym_ariel.menu_root"/>
+    <menuitem name = "Menu 2" id = "lym_ariel.menu_2" parent = "lym_ariel.menu_root"/>
+</odoo>
